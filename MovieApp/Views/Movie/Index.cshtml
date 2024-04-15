@@ -6,7 +6,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index<</title>
+    <title>Filmler<</title>
+    <link rel="stylesheet" href="~/css/myStyle.css"/>
 </head>
 <body>
     <h1>Film Listesi</h1>
@@ -15,6 +16,13 @@
         {
             <div class="film-item">
                 <img class="image" src="@(film.ImageUrl??"images/noimage.jpeg")" alt="@film.Name" />
+            </div>
+            <div class="film-bottom">
+                <h3 class="film-title">@film.Name</h3>
+            </div>
+            <div class="buttons">
+                <button class="button-blue" data-filmid="@film.Id">@film.LikeCount</button>
+                <button class="button-red" data-filmid="@film.Id">@film.DisLikeCountTotal</button>
             </div>
         }
 
