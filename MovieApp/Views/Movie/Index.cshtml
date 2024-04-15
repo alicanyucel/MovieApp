@@ -1,0 +1,23 @@
+﻿@using MovieApp.DataAccess
+@model List<Movie>
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index<</title>
+</head>
+<body>
+    <h1>Film Listesi</h1>
+    <div class="container">
+        @foreach (var film in Model)
+        {
+            <div class="film-item">
+                <img class="image" src="@(film.ImageUrl??"images/noimage.jpeg")" alt="@film.Name" />
+            </div>
+        }
+
+</body>
+</html>
+

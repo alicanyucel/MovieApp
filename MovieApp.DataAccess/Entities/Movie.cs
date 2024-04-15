@@ -8,7 +8,7 @@ namespace MovieApp.DataAccess.Entities
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
-        public string? ImageUrl { get; set; }
+        public string ImageUrl { get; set; }
         public int LikeCount { get; set; }
         public int DisLikeCountTotal { get; set; }
     }
