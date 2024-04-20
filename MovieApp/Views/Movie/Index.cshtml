@@ -14,15 +14,15 @@
     <div class="container">
         @foreach (var film in Model)
         {
-            <div class="film-item">
-                <img class="image" src="@(film.ImageUrl??"images/noimage.jpeg")" alt="@film.Name" />
+            <div class="film-item mt-2">
+                <img class="image ms-2" src="@(film.ImageUrl??"images/noimage.jpeg")" alt="@film.Name" />
             </div>
-            <div class="film-bottom">
-                <h3 class="film-title">@film.Name</h3>
+            <div class="film-bottom mt-2">
+                <h3 class="film-title ms-1">@film.Name</h3>
             </div>
-            <div class="buttons">
-                <button class="button-blue" data-filmid="@film.Id">@film.LikeCount</button>
-                <button class="button-red" data-filmid="@film.Id">@film.DisLikeCountTotal</button>
+            <div class="buttons mt-2">
+                <button class="button-blue ms-3 " data-filmid="@film.Id">@film.LikeCount</button>
+                <button class="button-red ms-3 " data-filmid="@film.Id">@film.DisLikeCountTotal</button>
             </div>
         }
 
