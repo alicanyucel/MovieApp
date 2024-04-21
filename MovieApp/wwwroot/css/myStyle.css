@@ -2,9 +2,64 @@
 
 
 
-.container{
-    box-sizing:border-box;
-    display:flex
-}
+.container {
+    box-sizing: border-box;
+    display: flex;
+    column-gap:4px; /* boşluk bırak */
+        }
 
+.film-item {
+    display: flex; /*  yanyana getir  */
+    flex-direction: column; /* sutun olarak hizala*/
+    justify-content:left;  /*  sağa yasla */
+    align-items:center; /* hücreleri ortala */
+    width:590px;
+    height:200px;
+    border:1px solid black;
+    border-radius:12px;
+    padding:0; /* iç boşluklar çerçevenin içindeki nesneye olan uzaklığı*/
+   position:center;
+}
+.film-item .image{
+    width:100%;
+    height:100%;
+    object-fit:fill; /* resmi bozmadan çlöeklendir*/
+    position:center;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    border-radius:2px 2px 0 0;
+}
+.film-item .film-title{
+
+    color:black;
+    text-align:center;
+}
+.buttons button{
+    padding:10px;
+    background-color:transparent;
+    border:none;
+    border-radius:5px;
+    color:white;
+    font-weight:bold;
+    font-size:12px;
+    cursor:pointer;
+    opacity:1;
+    transition:.3s ease opacity /* bekleme süresi*/
+}
+.buttons button:hover{
+    opacity:.5;
+    
+}
+.buttons .button-red{
+    background-color:red;
+    margin:5px;
+    
+}
+.buttons .button-blue{
+    background-color:rgb(0, 38, 255);
+    margin:5px;
+
+}
 /* film page end*/
