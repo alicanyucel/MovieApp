@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MovieApp.DataAccess;
+using MovieApp.Models;
 
 namespace MovieApp.Controllers
 {
@@ -17,6 +18,21 @@ namespace MovieApp.Controllers
             var allMovies = await _dataContext.Movies.ToListAsync();
 
             return View(allMovies);
+        }
+        [HttpPost]
+        public async Task<int> Like([FromBody] LikeDislLikeModel model)
+        {
+            var film = await _dataContext.Movies.FindAsync(model.FilmId);
+            if(model.IsLike)
+            {
+                film.LikeCount++;
+            }
+            else
+            {
+                film.DisLikeCountTotal++;
+            }
+            await _dataContext.SaveChangesAsync();
+            return model.IsLike ? film.LikeCount : film.DisLikeCountTotal;
         }
     }
 }

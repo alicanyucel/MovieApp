@@ -7,7 +7,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Filmler<</title>
-    <link rel="stylesheet" href="~/css//myStyle.css"/>
+    <link rel="stylesheet" href="~/css//myStyle.css" />
 </head>
 <body>
     <h1>Film Listesi</h1>
@@ -29,8 +29,26 @@
             var buttons = document.querySelectorAll(".buttons button");
             buttons.forEach(function (button) {
                 button.addEventListener('click', function () {
-                alert("hata");
-            });
+                    var filmId = this.getAttribute('data-filmid');
+                    var isLike = this.classList.contains('button-blue');
+                    var data = {
+                        filmId: filmId,
+                        isLike: isLike
+                    };
+                    fetch("/film/like", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type":"application/json"
+                        },
+                        body: JSON.stringify(data),
+                    }).then(function (response) {
+                        return response.json();
+                    }).then(function (data) {
+                        if (data) {
+                            button.innerHTML = data;
+                        }
+                    });
+                });
             });
         </script>
 </body>
