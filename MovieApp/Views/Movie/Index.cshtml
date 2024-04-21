@@ -25,7 +25,14 @@
                 <button class="button-red ms-3 " data-filmid="@film.Id">@film.DisLikeCountTotal</button>
             </div>
         }
-
+        <script>
+            var buttons = document.querySelectorAll(".buttons button");
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                alert("hata");
+            });
+            });
+        </script>
 </body>
 </html>
 
